@@ -30,7 +30,12 @@ jobs:
         run: npm install
 
       - name: Run Cypress tests
+        uses: cypress-io/github-action@v6
+        with:
+          record: true
+          browser: chrome
+          headed: false
         env:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
-        run: npm run test:staging
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
