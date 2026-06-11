@@ -9,23 +9,19 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        containers: [1, 2]
 
     steps:
       - uses: actions/checkout@v4
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
           browser: chrome
-          headed: false
           record: true
-          parallel: true
+          parallel: false
 
         env:
           EMAIL: ${{ secrets.EMAIL }}
