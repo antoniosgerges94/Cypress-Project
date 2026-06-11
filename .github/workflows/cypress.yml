@@ -17,6 +17,11 @@ jobs:
           module.exports = defineConfig({
             e2e: {
               baseUrl: 'https://qacart-todo.herokuapp.com',
+              setupNodeEvents(on, config) {
+                config.env.email = process.env.EMAIL ?? 'test@example.com';
+                config.env.password = process.env.PASSWORD ?? 'Test1234';
+                return config;
+              },
             },
           });
           EOF
@@ -25,4 +30,7 @@ jobs:
         run: npm install
 
       - name: Run Cypress tests
+        env:
+          EMAIL: ${{ secrets.EMAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
         run: npm run test:staging
