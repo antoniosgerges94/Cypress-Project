@@ -6,6 +6,8 @@ node_modules/
 
 # Cypress secrets
 cypress.env.json
+cypress.config.js
+
 
 # Cypress artifacts
 cypress/screenshots/
