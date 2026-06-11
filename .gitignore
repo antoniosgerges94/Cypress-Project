@@ -8,8 +8,10 @@ node_modules/
 cypress.env.json
 cypress.config.js
 
-
 # Cypress artifacts
 cypress/screenshots/
 cypress/videos/
 cypress/downloads/
+
+# Auto-generated files
+package-lock.json
