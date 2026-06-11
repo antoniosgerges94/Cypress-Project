@@ -1,5 +1,5 @@
 
-import TodoPage from './TodoPage';
+import TodoPage from './todoPage';
 
 class NewTodoPage {
 
