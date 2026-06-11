@@ -9,6 +9,9 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        containers: [1, 2]
 
     steps:
       - uses: actions/checkout@v4
@@ -19,9 +22,10 @@ jobs:
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          record: true
           browser: chrome
           headed: false
+          record: true
+          parallel: true
 
         env:
           EMAIL: ${{ secrets.EMAIL }}

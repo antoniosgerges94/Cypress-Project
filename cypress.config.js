@@ -10,6 +10,7 @@ module.exports = defineConfig({
     baseUrl: 'https://qacart-todo.herokuapp.com/',
     viewportWidth: 360,
     viewportHeight: 760,
+    videoUploadOnPasses: false,
     setupNodeEvents(on, config) {
       config.env.email = process.env.EMAIL ?? 'test@example.com';
       config.env.password = process.env.PASSWORD ?? 'Test1234';
